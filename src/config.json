@@ -1,0 +1,188 @@
+{
+    "name": "OCI-Artifacts",
+    "type": "executer",
+    "execProgram": "node",
+    "main": "app.js",
+    "exposeRoute": true,
+    "imgUrl": "logo.png",
+    "version": "1.0.0",
+    "description": "Integration with Oracle Cloud Artifacts Service",
+    "settings": [
+        {
+            "name":"authToken",
+            "viewName":"Auth Token",
+            "type":"vault"
+        },
+        {
+            "name":"username",
+            "viewName":"Username or Email",
+            "type":"string"
+        },
+        {
+            "name":"useOracleIdProvider",
+            "viewName":"Use Oracle Identity Cloud Service Provider",
+            "type":"boolean"
+        },
+        {
+            "name":"privateKey",
+            "viewName":"Private key",
+            "type":"vault"
+        },
+        {
+            "name":"userId",
+            "viewName":"User Id",
+            "type":"string"
+        },
+        {
+            "name":"tenancyId",
+            "viewName":"Tenancy Id",
+            "type":"string"
+        },
+        {
+            "name":"tenancyNamespace",
+            "viewName":"Tenancy Namespace",
+            "type":"string"
+        },
+        {
+            "name":"fingerprint",
+            "viewName":"Fingerprint",
+            "type":"vault"
+        },
+        {
+            "name":"region",
+            "viewName":"Region",
+            "type":"string"
+        }
+    ],
+    "methods":[
+        {
+            "name":"createContainerRepository",
+            "viewName":"Create Container Repository",
+            "params": [
+                {
+                    "name": "compartment",
+                    "viewName": "Compartment",
+                    "type": "autocomplete",
+                    "autocompleteType":"function",
+                    "functionName":"listCompartments"
+                },
+                {
+                    "name": "name",
+                    "viewName": "Repository Name",
+                    "type": "string"
+                },
+                {
+                    "name": "isPublic",
+                    "viewName": "Public",
+                    "type": "boolean"
+                },
+                {
+                    "name": "readmeType",
+                    "viewName": "Read Me Type",
+                    "type": "options",
+                    "options": [
+                        {
+                            "id": "no",
+                            "name": "No Read Me"
+                        },
+                        {
+                            "id": "TEXT_MARKDOWN",
+                            "name": "Markdown"
+                        },
+                        {
+                            "id": "TEXT_PLAIN",
+                            "name": "Plain Text"
+                        }
+                    ]
+                },
+                {
+                    "name": "readmeContent",
+                    "viewName": "Read Me Content",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "name":"pushImage",
+            "viewName":"Push Image To Repo",
+            "params": [
+                {
+                    "name":"authToken",
+                    "viewName":"Auth Token",
+                    "type":"vault"
+                },
+                {
+                    "name":"username",
+                    "viewName":"Username or Email",
+                    "type":"string"
+                },
+                {
+                    "name": "compartment",
+                    "viewName": "Compartment",
+                    "type": "autocomplete",
+                    "autocompleteType":"function",
+                    "functionName":"listCompartments"
+                },
+                {
+                    "name": "containerRepository",
+                    "viewName": "Container Repository",
+                    "type": "autocomplete",
+                    "autocompleteType":"function",
+                    "functionName":"listContainerRepositories"
+                },
+                {
+                  "name": "imageName",
+                  "viewName": "Image Name",
+                  "type": "string"
+                },
+                {
+                    "name": "shouldTag",
+                    "viewName": "Should Tag",
+                    "type": "boolean"
+                },
+                {
+                    "name": "tag",
+                    "viewName": "Tag",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name":"pullImage",
+            "viewName":"Pull Image From Repo",
+            "params": [
+                {
+                    "name":"authToken",
+                    "viewName":"Auth Token",
+                    "type":"vault"
+                },
+                {
+                    "name":"username",
+                    "viewName":"Username or Email",
+                    "type":"string"
+                },
+                {
+                    "name": "compartment",
+                    "viewName": "Compartment",
+                    "type": "autocomplete",
+                    "autocompleteType":"function",
+                    "functionName":"listCompartments"
+                },
+                {
+                    "name": "containerRepository",
+                    "viewName": "Container Repository",
+                    "type": "autocomplete",
+                    "autocompleteType":"function",
+                    "functionName":"listContainerRepositories"
+                },
+                {
+                    "name": "image",
+                    "viewName": "Image",
+                    "type": "autocomplete",
+                    "autocompleteType":"function",
+                    "functionName":"listImages"
+                }
+            ]
+        }
+    ]
+}

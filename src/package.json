@@ -1,0 +1,16 @@
+{
+  "name": "kaholo-plugin-oci-artifacts",
+  "version": "1.0.0",
+  "description": "Kaholo plugin for Oracle Cloud Infrastructure(OCI) Artifacts Service",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kaholo Team",
+  "license": "ISC",
+  "dependencies": {
+    "oci-identity": "^1.22.1",
+    "oci-common": "^1.22.1",
+    "oci-artifacts": "^1.22.1"
+  }
+}
