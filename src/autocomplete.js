@@ -36,7 +36,11 @@ async function listCompartments(query, pluginSettings) {
   const identityClient = await new identity.IdentityClient({
     authenticationDetailsProvider: provider
   });
-  const result = await identityClient.listCompartments({ compartmentId: tenancyId });
+  const result = await identityClient.listCompartments({
+    compartmentId: tenancyId,
+    compartmentIdInSubtree: true,
+    accessLevel: "ACCESSIBLE"
+  });
   const compartments = handleResult(result, query);
   compartments.push({id: tenancyId, value: "Tenancy"});
   return compartments;
