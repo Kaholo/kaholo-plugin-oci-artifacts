@@ -14,7 +14,7 @@ const child_process = require("child_process")
 }
 
 /***
- * @returns {artifacts.ArtifactsClient} OCI Database Client
+ * @returns {artifacts.ArtifactsClient} OCI Artifacts Client
  ***/
 function getArtifactsClient(settings){
     const provider = getProvider(settings);

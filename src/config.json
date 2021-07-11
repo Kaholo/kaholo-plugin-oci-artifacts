@@ -20,7 +20,7 @@
         },
         {
             "name":"useOracleIdProvider",
-            "viewName":"Use Oracle Identity Cloud Service Provider",
+            "viewName":"Use OCI Identity Provider",
             "type":"boolean"
         },
         {
