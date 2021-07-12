@@ -63,10 +63,31 @@ async function createContainerRepository(action, settings) {
   });
 }
 
+async function getImage(action, settings) {
+  const client = getArtifactsClient(settings);
+  const compartmentId = parsers.autocomplete(action.params.compartment) || settings.tenancyId;
+  if (!action.params.image){
+    if (action.params.imageName){
+      action.params.image = (await client.listContainerImages({
+        compartmentId,
+        displayName: parsers.string(action.params.imageName),
+        repositoryId: parsers.autocomplete(action.params.containerRepository)
+      })).containerImageCollection.items[0].id;
+    }
+    else {
+      throw "Must provide either Image ot Image Name";
+    }
+  }
+  return client.getContainerImage({
+    imageId: parsers.autocomplete(action.params.image)
+  });
+}
+
 module.exports = {
   pushImage: runDockerRepoCommand,
   pullImage: runDockerRepoCommand,
   createContainerRepository,
+  getImage,
   ...require("./autocomplete")
 }
 

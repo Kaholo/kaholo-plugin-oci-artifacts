@@ -183,6 +183,38 @@
                     "functionName":"listImages"
                 }
             ]
+        },
+        {
+            "name":"getImage",
+            "viewName":"Get Image",
+            "params": [
+                {
+                    "name": "compartment",
+                    "viewName": "Compartment",
+                    "type": "autocomplete",
+                    "autocompleteType":"function",
+                    "functionName":"listCompartments"
+                },
+                {
+                    "name": "containerRepository",
+                    "viewName": "Container Repository",
+                    "type": "autocomplete",
+                    "autocompleteType":"function",
+                    "functionName":"listContainerRepositories"
+                },
+                {
+                    "name": "image",
+                    "viewName": "Image",
+                    "type": "autocomplete",
+                    "autocompleteType":"function",
+                    "functionName":"listImages"
+                },
+                {
+                    "name": "imageName",
+                    "viewName": "Image Name",
+                    "type": "string"
+                }
+            ]
         }
     ]
 }

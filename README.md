@@ -46,3 +46,14 @@ Pull a docker image from the specified OCI container repository.
 3. Compartment (Autocomplete) **Required** - The compartment the repository.
 4. Container Repository (Autocomplete) **Required** - The container repository to push the image to.
 5. Image (Autocomplete) **Required** - The image to pull from the repository.
+
+## Method Get Image
+Get back information about the specified image. Can either provide image by selecting it from the autocomplete menu or by image name.
+
+### Parameters
+1. Compartment (Autocomplete) **Optional** - The compartment of the repository. If not specified will use tenancy as default.
+2. Container Repository (Autocomplete) **Optional** - The container repository that stores the required image.
+3. Image (Autocomplete) **Optional** - The container image to return information about.
+4. Image Name (String) **Optional** - The name of the image resource in OCI to get info about.
+
+* **Please Notice!** You must provide either Image or Image Name.
