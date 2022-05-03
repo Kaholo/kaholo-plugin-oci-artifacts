@@ -7,7 +7,7 @@
     "imgUrl": "logo.png",
     "version": "1.0.1",
     "description": "Integration with Oracle Cloud Artifacts Service",
-    "category": "ARTIFICATS",
+    "category": "Registry",
     "settings": [
         {
             "name":"authToken",
